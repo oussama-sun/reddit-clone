@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+    .reddit-btn-outline {
+        @apply cursor-pointer font-semibold text-blue-500 py-1 px-4 lg:px-8 border-2 rounded-full border-blue-500
+    }
+    .reddit-btn{
+        @apply cursor-pointer font-semibold text-white border-2 rounded-full py-1 px-4 lg:px-8 bg-blue-500 border-blue-500
+    }
+}
