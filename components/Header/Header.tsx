@@ -1,8 +1,13 @@
 import Image from "next/image";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../Firebase/clientApp";
 import AouthBtn from "../Aouth/AouthBtn";
 import AouthModal from "../Aouth/AouthModal";
+import User from "./User";
 
 const Header = () => {
+  const [user, loading, error] = useAuthState(auth);
+
   return (
     <header className="bg-white">
       <nav className="flex items-center justify-between py-2 px-4">
@@ -22,8 +27,14 @@ const Header = () => {
             placeholder="Search Hear"
           />
         </form>
-        <AouthModal />
-        <AouthBtn />
+        {user ? (
+          <User />
+        ) : (
+          <>
+            <AouthModal />
+            <AouthBtn />
+          </>
+        )}
       </nav>
     </header>
   );
